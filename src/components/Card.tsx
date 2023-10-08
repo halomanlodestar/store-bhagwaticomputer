@@ -13,7 +13,7 @@ const Card: FunctionComponent<CardProps> = ({ product }) => {
 	return (
 		<Link
 			href={`/product/${product.id}`}
-			className="w-full h-full cursor-pointer flex flex-col space-y-4 bg-neutral-900"
+			className="w-full h-full cursor-pointer flex flex-col space-y-4 bg-neutral-100 p-2 dark:bg-neutral-900"
 		>
 			<Banner src={product.image} category={product.category} />
 			<div className="flex flex-col space-y-1 items-start w-full p-3">

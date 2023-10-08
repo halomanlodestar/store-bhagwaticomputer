@@ -6,12 +6,13 @@ import Category from "@/database/Schemas/Category";
 import Product from "@/database/Schemas/Product";
 import { notFound } from "next/navigation";
 import { FunctionComponent } from "react";
+import Loading from "./loading";
 
 interface CategoryPageProps {
 	params: { slug: string };
 }
 
-export const revalidate = 0;
+export const revalidate = 1000;
 
 const CategoryPage: FunctionComponent<CategoryPageProps> = async ({
 	params: { slug },
@@ -25,6 +26,8 @@ const CategoryPage: FunctionComponent<CategoryPageProps> = async ({
 		categoryPromise,
 		productsPromise,
 	]);
+
+	// return <Loading />;
 
 	if (!category) return notFound();
 

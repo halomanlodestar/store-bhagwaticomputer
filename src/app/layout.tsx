@@ -3,8 +3,9 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Quicksand } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import GlobalThemeProvider from "@/components/providers/GlobalThemeProvider";
+import Footer from "@/components/Footer";
 
 const font = Quicksand({ subsets: ["latin"], weight: "400" });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
 				<GlobalThemeProvider>
 					<Navbar />
 					{children}
+					<Footer />
 				</GlobalThemeProvider>
 			</body>
 		</html>

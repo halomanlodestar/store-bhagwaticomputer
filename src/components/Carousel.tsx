@@ -23,7 +23,7 @@ const Carousel: FunctionComponent<CarouselProps> = async () => {
 					width={750}
 					height={450}
 				/>
-				<div className="p-5 space-y-2 bottom-0 left-0 w-full absolute sm:w-2/3">
+				<div className="space-y-2 bottom-0 left-0 w-full">
 					<h2 className="sm:text-3xl md:text-5xl text-xl">
 						{featuredProducts[0].name}
 					</h2>

@@ -7,9 +7,15 @@ interface BannerProps {
 	src: string;
 	category?: Category;
 	zoom?: boolean;
+	overlay?: boolean;
 }
 
-const Banner: FunctionComponent<BannerProps> = ({ src, zoom, category }) => {
+const Banner: FunctionComponent<BannerProps> = ({
+	src,
+	zoom,
+	category,
+	overlay,
+}) => {
 	const placeholder =
 		"https://www.genatec.com/hs-fs/hubfs/genatec_blog_assets/Blog-2022-005/What%20is%20a%20gaming%20setup_-1.jpg?width=1477&height=831&name=What%20is%20a%20gaming%20setup_-1.jpg";
 	return (
@@ -25,9 +31,14 @@ const Banner: FunctionComponent<BannerProps> = ({ src, zoom, category }) => {
 					} duration-200`}
 				/>
 				<div
-					className={`absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-black/70 group-hover:opacity-0 duration-200`}
+					className={`absolute top-0 left-0 w-full h-full 
+					${
+						overlay &&
+						"bg-gradient-to-tr from-black/70 group-hover:opacity-0 duration-200"
+					}
+					`}
 				></div>
-				<span className="absolute bottom-5 left-5 text-xl">
+				<span className="absolute bottom-1 left-1 text-xl">
 					{category?.label || "Featured"}
 				</span>
 			</div>
