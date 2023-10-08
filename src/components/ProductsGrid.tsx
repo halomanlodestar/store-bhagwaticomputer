@@ -5,11 +5,15 @@ import Card from "./Card";
 import Product from "@/database/Schemas/Product";
 import connect from "@/database";
 
-interface ProductsGridProps {}
+interface ProductsGridProps {
+	inputProducts?: Product[];
+}
 
-const ProductsGrid: FunctionComponent<ProductsGridProps> = async () => {
+const ProductsGrid: FunctionComponent<ProductsGridProps> = async ({
+	inputProducts,
+}) => {
 	connect();
-	const products = await Product.find<Product>();
+	const products = inputProducts || (await Product.find<Product>());
 
 	return (
 		<section className="w-full px-4 text-3xl md:text-4xl h-full space-y-4 sm:space-y-7 pt-10">

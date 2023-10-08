@@ -11,6 +11,8 @@ interface ProductPageProps {
 	params: { id: string };
 }
 
+export const revalidate = 0;
+
 const ProductPage: FunctionComponent<ProductPageProps> = async ({
 	params: { id },
 }) => {
@@ -20,7 +22,7 @@ const ProductPage: FunctionComponent<ProductPageProps> = async ({
 
 	return (
 		<main className="w-full p-4 pt-10 sm:p-10 lg:px-32 space-y-8">
-			<section className="flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:space-x-4 md:space-x-5">
+			<section className="flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:space-x-4 md:space-x-10">
 				<div className="md:w-2/3 lg:w-3/5">
 					<Banner category={product.category} src={product.image} />
 				</div>

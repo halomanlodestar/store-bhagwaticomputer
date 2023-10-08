@@ -9,5 +9,6 @@ type Product = {
 	price: number;
 	availability: boolean;
 	image: string;
+	featured: boolean;
 	category: Category;
 };

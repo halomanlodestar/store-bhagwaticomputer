@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 
 interface BannerProps {
-	src?: string;
+	src: string;
 	category?: Category;
 	zoom?: boolean;
 }

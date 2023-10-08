@@ -10,6 +10,10 @@ const productSchema = new Schema({
 	price: Number,
 	availability: Boolean,
 	image: String,
+	featured: {
+		type: Boolean,
+		default: false,
+	},
 	category: {
 		type: {
 			label: String,
