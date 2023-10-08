@@ -1,5 +1,6 @@
 /** @format */
 
+import connect from "@/database";
 import Category from "@/database/Schemas/Category";
 import Link from "next/link";
 import { FC } from "react";
@@ -7,6 +8,7 @@ import { FC } from "react";
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = async () => {
+	connect();
 	const categories = await Category.find<Category>();
 
 	// console.log(categories);

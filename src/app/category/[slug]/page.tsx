@@ -1,12 +1,9 @@
 /** @format */
 
-import Banner from "@/components/Banner";
-import Card from "@/components/Card";
 import ProductsGrid from "@/components/ProductsGrid";
 import connect from "@/database";
 import Category from "@/database/Schemas/Category";
 import Product from "@/database/Schemas/Product";
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FunctionComponent } from "react";
 
@@ -19,6 +16,8 @@ export const revalidate = 0;
 const CategoryPage: FunctionComponent<CategoryPageProps> = async ({
 	params: { slug },
 }) => {
+	connect();
+
 	const categoryPromise = Category.findOne<Category>({ slug: slug });
 	const productsPromise = Product.find<Product>({ "category.slug": slug });
 

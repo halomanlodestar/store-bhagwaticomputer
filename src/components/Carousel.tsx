@@ -4,10 +4,12 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import Product from "@/database/Schemas/Product";
 import Link from "next/link";
+import connect from "@/database";
 
 interface CarouselProps {}
 
 const Carousel: FunctionComponent<CarouselProps> = async () => {
+	connect();
 	const featuredProducts = await Product.find<Product>({ featured: true });
 
 	return (

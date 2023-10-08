@@ -53,6 +53,8 @@ const ProductPage: FunctionComponent<ProductPageProps> = async ({
 export async function generateMetadata({
 	params: { id },
 }: ProductPageProps): Promise<Metadata> {
+	connect();
+
 	const product = await Product.findOne<Product>({ id: id });
 
 	return {
