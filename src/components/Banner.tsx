@@ -8,6 +8,7 @@ interface BannerProps {
 	category?: Category;
 	zoom?: boolean;
 	overlay?: boolean;
+	priority?: boolean;
 }
 
 const Banner: FunctionComponent<BannerProps> = ({
@@ -15,6 +16,7 @@ const Banner: FunctionComponent<BannerProps> = ({
 	zoom,
 	category,
 	overlay,
+	priority,
 }) => {
 	const placeholder =
 		"https://www.genatec.com/hs-fs/hubfs/genatec_blog_assets/Blog-2022-005/What%20is%20a%20gaming%20setup_-1.jpg?width=1477&height=831&name=What%20is%20a%20gaming%20setup_-1.jpg";
@@ -22,6 +24,7 @@ const Banner: FunctionComponent<BannerProps> = ({
 		<div className="overflow-clip bg-transparent">
 			<div className={`relative group`}>
 				<Image
+					priority={priority}
 					alt="banner"
 					width={416}
 					height={238}

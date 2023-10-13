@@ -17,6 +17,7 @@ const Carousel: FunctionComponent<CarouselProps> = async () => {
 			<Link href={`/product/${featuredProducts[0].id}`}>
 				<Image
 					alt=""
+					priority
 					className="max-h-full max-w-full h-fit w-fit"
 					// priority
 					src={featuredProducts[0].image}

@@ -5,26 +5,33 @@ import connect from "@/database";
 import Product from "@/database/Schemas/Product";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { FunctionComponent } from "react";
+import { FunctionComponent, cache } from "react";
 
 interface ProductPageProps {
 	params: { id: string };
 }
 
-export const revalidate = 0;
+// export const revalidate = 0;
+
+const getProduct = cache(async (id: string) => {
+	connect();
+	const product = await Product.findOne<Product>({ id: id });
+
+	if (!product) return notFound();
+
+	return product;
+});
 
 const ProductPage: FunctionComponent<ProductPageProps> = async ({
 	params: { id },
 }) => {
-	connect();
-	const product = await Product.findOne<Product>({ id: id });
-	if (!product) return notFound();
+	const product = await getProduct(id);
 
 	return (
 		<main className="w-full p-4 pt-10 sm:p-10 lg:px-32 space-y-8">
 			<section className="flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:space-x-4 md:space-x-10">
 				<div className="md:w-2/3 lg:w-3/5">
-					<Banner category={product.category} src={product.image} />
+					<Banner priority category={product.category} src={product.image} />
 				</div>
 				<div className="flex flex-col space-y-5">
 					<h2 className="text-2xl md:text-3xl lg:text-4xl">{product.name}</h2>
@@ -55,11 +62,12 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
 	connect();
 
-	const product = await Product.findOne<Product>({ id: id });
+	const product = await getProduct(id);
 
 	return {
 		title: product?.name,
 		description: product?.description,
+		openGraph: { images: [{ url: product.image }] },
 	};
 }
 
