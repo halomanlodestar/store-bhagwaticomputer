@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Bhagwati Computer | Store",
 		description: "Store by Bhagwati Computer for all your technical meeds",
-		images: [{ url: "https://store.bhagwaticomputer.com/logo" }],
+		images: [{ url: "https://store.bhagwaticomputer.com/logo.png" }],
 	},
 };
 
