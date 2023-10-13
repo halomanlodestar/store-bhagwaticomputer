@@ -12,6 +12,11 @@ const font = Quicksand({ subsets: ["latin"], weight: "400" });
 export const metadata: Metadata = {
 	title: "Bhagwati Computer | Store",
 	description: "Store by Bhagwati Computer for all your technical meeds",
+	openGraph: {
+		title: "Bhagwati Computer | Store",
+		description: "Store by Bhagwati Computer for all your technical meeds",
+		images: [{ url: "https://store.bhagwaticomputer.com/logo" }],
+	},
 };
 
 export default function RootLayout({
