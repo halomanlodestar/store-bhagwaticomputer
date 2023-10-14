@@ -1,5 +1,6 @@
 /** @format */
 
+import Container from "@/components/Container";
 import InlineCategoryContainer from "@/components/category-containers/Inline";
 
 export default function RootLayout({
@@ -10,7 +11,7 @@ export default function RootLayout({
 	return (
 		<div>
 			<InlineCategoryContainer />
-			{children}
+			<Container>{children}</Container>
 		</div>
 	);
 }

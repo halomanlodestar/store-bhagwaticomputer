@@ -39,7 +39,7 @@ const CategoryPage: FunctionComponent<CategoryPageProps> = async ({
 		);
 
 	return (
-		<main className="lg:px-32 ">
+		<main>
 			<ProductsGrid inputProducts={products} />
 		</main>
 	);
